@@ -63,7 +63,7 @@ def pair_potential_fn(num_points_inside_r0, beta):
 if __name__ == "__main__":
     
     # Number of points in a row or column of a uniform grid
-    n = 5
+    n = 10
     # Interaction radius
     r_s = 0.05
     # Particle radius
