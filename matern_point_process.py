@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt  # For plotting
 
 if __name__ == "__main__":
 
+    num_sim = 1
     # Simulation window parameters
     xMin = 0
     xMax = 2
@@ -31,7 +32,7 @@ if __name__ == "__main__":
     yDeltaExt=yMaxExt-yMinExt
     areaTotalExt=xDeltaExt*yDeltaExt #area of extended rectangle
 
-    for ss in range(1):
+    for ss in range(num_sim):
         
         #Simulate Poisson point process for the parents
         numbPointsExt= np.random.poisson(areaTotalExt*lambdaPoisson)#Poisson number
