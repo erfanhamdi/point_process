@@ -16,7 +16,12 @@ This repository contains code for simulating and analyzing point processes. Poin
 - [matern_point_process.py](./matern_point_process.py): Here we generate a point pattern based on the matern I point process. I changed the code in a wonderfull overview of Point Processes by Paul Keeler that you can find [here](https://hpaulkeeler.com/simulating-matern-hard-core-point-processes/). It now contains only the type-I Matern PP.
 
 ### Strauss Point Process
-- [strauss_point_process.py](./strauss_death_birth.py): In this script, I simulated a point pattern based on [Strauss Point Process](https://academic.oup.com/biomet/article-abstract/62/2/467/337198) using birth and death algorithm.
+- [strauss_point_process.py](./strauss_death_birth.py): In this script, I simulated a point pattern based on [Strauss Point Process](https://academic.oup.com/biomet/article-abstract/62/2/467/337198) using birth and death algorithm. The pair potential function used for generating it is:
+$$\phi(x) = exp(-\beta\Sigma^{n}_{j=1, j\neq k}\mathbf{1}(0<||x-x_j||\leq r_i))$$
+taken from: 
+
+``Illian, Janine, Antti Penttinen, Helga Stoyan, and Dietrich Stoyan. Statistical Analysis and Modelling of Spatial Point Patterns. 1st ed. Wiley, 2007. https://doi.org/10.1002/9780470725160.``
+
 
 
 | Point Process Name | Final Result |
