@@ -1,5 +1,4 @@
 import numpy as np
-import scipy.stats
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
@@ -13,7 +12,8 @@ if __name__ == "__main__":
     areaTotal = xDelta * yDelta
     
     # Point process parameters
-    lambda0=100; # intensity (ie mean density) of the Poisson process
+    # Intensity
+    lambda0=100
     
     #Simulate Poisson point process
     #Poisson number of points
