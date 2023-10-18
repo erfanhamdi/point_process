@@ -4,4 +4,5 @@ This repository contains code for simulating and analyzing point processes. Poin
 ## Contents
 - [uniform_point_process.py](./uniform_point_process.py): Python code for generating a random point using a uniform point process.
 - [binomial_point_process.py](./binomial_point_process.py): In this script we generate a point pattern with fixed number of points with uniform probability
-- [poisson_point_process.py](./poisson_point_process.py): The generated point pattern is one realisation of poisson point process with intensity &lambda; = 100 
+- [poisson_point_process.py](./poisson_point_process.py): The generated point pattern is one realisation of poisson point process with intensity &lambda; = 100
+- [matern_point_process.py](./matern_point_process.py): Here we generate a point pattern based on the matern I point process. 
