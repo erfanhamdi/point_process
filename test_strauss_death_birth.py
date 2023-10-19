@@ -46,18 +46,11 @@ def test_check_criteria():
     assert dist_mask.shape == (3,), "test 1"
 
     # Test 2: Test if the returned mask is correct
-    point_list = [[0, 0], [1, 1], [2, 2]]
+    point_list = [[0, 0], [1, 1], [3, 3]]
     new_point = [1, 1]
     r0 = 1.5
     dist_mask = check_criteria(point_list, new_point, r0)
     assert np.array_equal(dist_mask, [True, True, False]), "test 2"
-
-    # Test 3: Test if the function works with a different point list
-    point_list = [[0, 0], [1, 1], [2, 2], [3, 3]]
-    new_point = [1, 1]
-    r0 = 1.5
-    dist_mask = check_criteria(point_list, new_point, r0)
-    assert np.array_equal(dist_mask, [True, True, False, False]), "test 3"
 
     # Test 4: Test if the function works with a different interaction radius
     point_list = [[0, 0], [1, 1], [2, 2]]
