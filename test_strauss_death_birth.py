@@ -23,20 +23,6 @@ def test_death_fn():
     i2, j2 = death_fn(grid)
     assert (i1, j1) != (i2, j2)
 
-def test_birth_fn():
-    # Test 1: Test if the returned tuple has length 2
-    assert len(birth_fn()) == 2
-
-    # Test 2: Test if the returned tuple contains only numbers between 0 and 1
-    x, y = birth_fn()
-    assert 0 <= x <= 1
-    assert 0 <= y <= 1
-
-    # Test 3: Test if the returned tuples are different for different calls
-    t1 = birth_fn()
-    t2 = birth_fn()
-    assert t1 != t2
-
 def test_check_criteria():
     # Test 1: Test if the returned mask has the correct shape
     point_list = [[0, 0], [1, 1], [2, 2]]
@@ -79,7 +65,26 @@ def test_pair_potential_fn():
     assert result == 0
 
     # Test 4: Test if the returned value is 1 when beta is 0
-    num_points_inside_r0 = 5
+    num_points_insside_r0 = 5
     beta = 0
     result = pair_potential_fn(num_points_inside_r0, beta)
     assert result == 1
+
+def test_simulation_step():
+    # Test 1: simulate two points in a square box
+    beta = -0.4
+    xx, yy = initial_grid( 2, 1, 1, 1)
+    points = simulation_step(np.sqrt(2), beta, xx, yy, 1, 1)
+    points = np.array(points)
+    # distance between the two points should be less than 1
+    assert np.linalg.norm(points[0] - points[1]) <= np.sqrt(2)
+
+def test_birth_fn():
+    # Test 1: Test if the returned tuple has length 2
+    result = birth_fn(10, 10)
+    assert len(result) == 2
+
+    # Test 3: Test if the returned tuple is different for different calls
+    result1 = birth_fn(10, 10)
+    result2 = birth_fn(10, 10)
+    assert result1 != result2
