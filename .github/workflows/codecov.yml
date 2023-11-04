@@ -47,7 +47,7 @@ jobs:
     # - name: Test with unittest
     - name: Test with pytest
       run: |
-        pip install pytest
+        pip install pytest pytest-cov
     - name: Generate coverage report
       run: |
         pytest --cov=point_process  --cov-report=xml
