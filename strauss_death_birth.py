@@ -172,6 +172,3 @@ if __name__ == "__main__":
     import time
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     np.savetxt(f"strauss_points_{timestamp}.txt", points, fmt="%.6f")
-    
-
-
