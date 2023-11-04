@@ -1,5 +1,5 @@
 import numpy as np
-from strauss_death_birth import *
+from point_process.strauss_death_birth import *
 def test_death_fn():
     # Test 1: Test if the returned indices are within the grid shape
     grid = np.zeros((10, 10))
