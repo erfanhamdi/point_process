@@ -125,50 +125,50 @@ def simulation_step(r_s, beta, xx, yy, h, w):
         points = list(zip(xx.flatten(), yy.flatten()))
     return points
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     
-    # Number of points in a row or column of a uniform grid
-    n_x = 4
-    n_y = 4
-    # Interaction radius
-    r_s = 3
-    # Particle radius
-    r_i = 0.02
-    # Interaction parameter
-    beta = 0.4
-    # Marker size for plotting
-    marker_size = 30
-    # Number of simulation steps
-    sim_steps = 500
-    h = 27
-    w = 27
-    # create a uniform grid of points
-    xx, yy = initial_grid(n_x, n_y, h, w)
+#     # Number of points in a row or column of a uniform grid
+#     n_x = 4
+#     n_y = 4
+#     # Interaction radius
+#     r_s = 3
+#     # Particle radius
+#     r_i = 0.02
+#     # Interaction parameter
+#     beta = 0.4
+#     # Marker size for plotting
+#     marker_size = 30
+#     # Number of simulation steps
+#     sim_steps = 500
+#     h = 27
+#     w = 27
+#     # create a uniform grid of points
+#     xx, yy = initial_grid(n_x, n_y, h, w)
     
-    fig, ax = plt.subplots()
-    ax.set_xlim(-0.1, w+0.1)
-    ax.set_ylim(-0.1, h+0.1)
-    # draw a rectangle
-    rect = plt.Rectangle((0, 0), w, h, fill=False)
-    ax.add_patch(rect)
+#     fig, ax = plt.subplots()
+#     ax.set_xlim(-0.1, w+0.1)
+#     ax.set_ylim(-0.1, h+0.1)
+#     # draw a rectangle
+#     rect = plt.Rectangle((0, 0), w, h, fill=False)
+#     ax.add_patch(rect)
 
-    flag = True
-    for i in range(sim_steps):
-        points = simulation_step(r_s, beta, xx, yy, h, w)
-    plt.scatter(*zip(*points))
-    # plot a circle around each point with radius r_s/2
-    for point in points:
-        circle = plt.Circle(point, r_s/2, fill=False)
-        ax.add_artist(circle)
-    # equal aspect ratio
-    ax.set_aspect('equal', 'box')
-    plt.show()
-    # print the distance between points
-    points_array = np.array(points)
-    dist = np.linalg.norm(points_array - points_array[:, None], axis=-1)
-    print(f"distance: {dist}")
-    # save points to a file
-    # create a timestamp based name for the file
-    import time
-    timestamp = time.strftime("%Y%m%d-%H%M%S")
-    np.savetxt(f"strauss_points_{timestamp}.txt", points, fmt="%.6f")
+#     flag = True
+#     for i in range(sim_steps):
+#         points = simulation_step(r_s, beta, xx, yy, h, w)
+#     plt.scatter(*zip(*points))
+#     # plot a circle around each point with radius r_s/2
+#     for point in points:
+#         circle = plt.Circle(point, r_s/2, fill=False)
+#         ax.add_artist(circle)
+#     # equal aspect ratio
+#     ax.set_aspect('equal', 'box')
+#     plt.show()
+#     # print the distance between points
+#     points_array = np.array(points)
+#     dist = np.linalg.norm(points_array - points_array[:, None], axis=-1)
+#     print(f"distance: {dist}")
+#     # save points to a file
+#     # create a timestamp based name for the file
+#     import time
+#     timestamp = time.strftime("%Y%m%d-%H%M%S")
+#     np.savetxt(f"strauss_points_{timestamp}.txt", points, fmt="%.6f")

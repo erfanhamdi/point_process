@@ -1,5 +1,6 @@
 import numpy as np
 from point_process.strauss_death_birth import *
+
 def test_death_fn():
     # Test 1: Test if the returned indices are within the grid shape
     grid = np.zeros((10, 10))
@@ -88,3 +89,31 @@ def test_birth_fn():
     result1 = birth_fn(10, 10)
     result2 = birth_fn(10, 10)
     assert result1 != result2
+
+def test_initial_grid():
+    # Test 1: Test if the returned arrays have the correct shape
+    n_x = 10
+    n_y = 10
+    h = 1
+    w = 1
+    xx, yy = initial_grid(n_x, n_y, h, w)
+    assert xx.shape == (n_y, n_x), "test 1"
+    assert yy.shape == (n_y, n_x), "test 1"
+
+    # Test 2: Test if the returned arrays have the correct values
+    n_x = 2
+    n_y = 2
+    h = 1
+    w = 1
+    xx, yy = initial_grid(n_x, n_y, h, w)
+    assert np.array_equal(xx, np.array([[0, 1], [0, 1]])), "test 2"
+    assert np.array_equal(yy, np.array([[0, 0], [1, 1]])), "test 2"
+
+    # Test 3: Test if the function works with non-square grids
+    n_x = 3
+    n_y = 2
+    h = 1
+    w = 2
+    xx, yy = initial_grid(n_x, n_y, h, w)
+    assert np.array_equal(xx, np.array([[0, 1, 2], [0, 1, 2]])), "test 3"
+    assert np.array_equal(yy, np.array([[0, 0, 0], [1, 1, 1]])), "test 3"

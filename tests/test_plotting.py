@@ -1,5 +1,4 @@
 import numpy as np
-import pytest
 from matplotlib.patches import Rectangle
 import matplotlib.pyplot as plt
 from point_process.plotting import plot_base
