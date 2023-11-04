@@ -1,4 +1,4 @@
-name: coverage_test
+name: codecov
 
 # reference:
 # https://github.com/pybind/python_example/blob/master/.github/workflows/pip.yml
