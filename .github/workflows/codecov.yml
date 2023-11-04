@@ -3,11 +3,11 @@ name: codecov
 # reference:
 # https://github.com/pybind/python_example/blob/master/.github/workflows/pip.yml
 
-# on: [push]
-on:
-  push:
-    paths:
-      - '**.py'
+on: [push]
+# on:
+#   push:
+#     paths:
+#       - '**.py'
 
 jobs:
   build:
