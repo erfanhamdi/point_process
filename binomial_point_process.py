@@ -1,5 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plotting import plot_base
+
+def gen_binomial_pp(N, h, w):
+    x = np.random.uniform(0, w, N)
+    y = np.random.uniform(0, h, N)
+    return x, y
 
 if __name__ == "__main__":
     # number of points
@@ -8,15 +14,6 @@ if __name__ == "__main__":
     x_max = 2
     y_max = 1
     # generate N random points using uniform distribution
-    x = np.random.uniform(0, x_max, N)
-    y = np.random.uniform(0, y_max, N)
+    x, y = gen_binomial_pp(N, x_max, y_max)
     # plot the points
-    plt.scatter(x, y)
-    # plot the rectangle patch
-    plt.gca().add_patch(plt.Rectangle((0, 0), x_max, y_max, fill=False))
-    # plot a smaller rectangle patch inside the first one
-    plt.gca().add_patch(plt.Rectangle((0.25, 0.25), 0.5, 0.5, fill=True, color='red', alpha=0.5))
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.title("Binomial point process")
-    plt.show()
+    plot_base(x, y, x_max, y_max)
