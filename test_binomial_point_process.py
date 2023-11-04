@@ -1,5 +1,5 @@
 import numpy as np
-from binomial_point_process import gen_binomial_pp
+from point_process.binomial_point_process import gen_binomial_pp
 
 def test_gen_binomial_pp():
     N = 100
@@ -10,3 +10,4 @@ def test_gen_binomial_pp():
     assert len(y) == N
     assert np.all(x >= 0) and np.all(x <= w)
     assert np.all(y >= 0) and np.all(y <= h)
+
